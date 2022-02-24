@@ -8,14 +8,15 @@ import scrapy
 url = "https://brickset.com/sets/year-2011"
 # Target url
 r = requests.get(url)
+print("Status code:")
+print("\t *", r.status_code, "OK")
 
 # Getting the headers of the target website
 h = requests.head(url)
 print(url)
 print("Website Header:")
 print("****")
-print("Status code:")
-print("\t *", r.status_code, "OK")
+
 
 # To print line by line
 for x in h.headers:
@@ -25,18 +26,17 @@ print("****")
 #to enable unittest
 class TestCase(unittest.TestCase):
     def testExample(self):
-        print("")
+        print("Testing")
 
 
-
-
-
-
-
-
-
-
-
+# This will modify the headers user-agent
+headers = {
+    'User-Agent' : "Mobile"
+}
+# to get get headers of mobile
+url2 = 'http://httpbin.org/headers'
+rh = requests.get(url2, headers=headers)
+print(rh.text)
 
 
 
