@@ -1,13 +1,24 @@
+# import requests library
+import requests
+#import scrapy to run scrapy code below
+
+# Target url
+url = "https://brickset.com/sets/year-2011"
+r = requests.get(url)
 
 
+# Getting the headers of the target website
+h = requests.head(url)
+print(url)
+print("Website Header:")
+print("****")
+print("Status code:")
+print("\t *", r.status_code, "OK")
 
-
-
-
-
-
-
-
+# To print line by line
+for x in h.headers:
+    print("\t ", x, ":", h.headers[x])
+print("****")
 
 
 
